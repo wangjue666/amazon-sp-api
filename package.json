@@ -20,7 +20,7 @@
     "mws",
     "amazon mws"
   ],
-  "author": "Jens Lübberstedt <jens@amz.tools>",
+  "author": "Jens Lübberstedt <jens@florentine.ai>",
   "license": "MIT",
   "dependencies": {
     "csvtojson": "^2.0.10",
@@ -39,12 +39,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:amz-tools/amazon-sp-api.git"
+    "url": "git@github.com:jrl84/amazon-sp-api.git"
   },
   "scripts": {
     "test": "mocha --config ./test/.mocharc.js",
     "format": "npx prettier --write ."
   },
-  "homepage": "https://getarthy.com",
+  "homepage": "https://github.com/jrl84/amazon-sp-api",
   "types": "./lib/typings/index.d.ts"
 }
