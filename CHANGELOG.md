@@ -1,3 +1,27 @@
+## [v1.1.7](https://github.com/jrl84/amazon-sp-api/tree/v1.1.7) (2025-09-12)
+
+[Full Changelog](https://github.com/jrl84/amazon-sp-api/compare/v1.1.6...v1.1.7)
+
+**Notable changes:**
+
+- Added customerFeedback, sellerWallet and transfers endpoints
+- Added sellerWallet endpoint
+- Changed package.json to new repository path
+
+**Commits:**
+
+- Updated package.json to new username and path ([`8c3671a`](https://github.com/jrl84/amazon-sp-api/commit/8c3671a25531fd91f32505080fae894acf0ec546))
+- Added new sellerWallet endpoint ([`50efa7b`](https://github.com/jrl84/amazon-sp-api/commit/50efa7b4669eb3b230dfc2ffad67ac2a144dd745))
+- Update sellers getAccount restore rate ([`927eb39`](https://github.com/jrl84/amazon-sp-api/commit/927eb3987ca7bdafa6bd4f4d984a39b7ea33002a))
+- Added new transfers endpoint ([`6cb0add`](https://github.com/jrl84/amazon-sp-api/commit/6cb0addd4ef21d82286bec112baeb1778b7ff449))
+- Added sandbox-only operations to fbaInventory ([`5b5723c`](https://github.com/jrl84/amazon-sp-api/commit/5b5723cd2136ffbaf2552e7659e94325e0143dcb))
+- Changed customer feedback endpoint to correct restore rate of 1 ([`85ce2f2`](https://github.com/jrl84/amazon-sp-api/commit/85ce2f27d198a5d03a9cfaf99c007f1a09eac057))
+- add customer feedback endpoint ([`f88dab3`](https://github.com/jrl84/amazon-sp-api/commit/f88dab37388942ec066f8784e429d06a36b2f8a1))
+
+**Merged pull requests:**
+
+- Add customer feedback endpoint [\#321](https://github.com/jrl84/amazon-sp-api/pull/321) ([altruer](https://github.com/altruer))
+
 ## [v1.1.6](https://github.com/amz-tools/amazon-sp-api/tree/v1.1.6) (2025-04-15)
 
 [Full Changelog](https://github.com/amz-tools/amazon-sp-api/compare/v1.1.5...v1.1.6)
