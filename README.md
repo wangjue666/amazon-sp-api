@@ -9,6 +9,10 @@ The client handles calls to the Amazon Selling Partner API. It wraps up all the 
 
 [List of breaking changes when upgrading to version 1.x.x](#breaking-changes)
 
+## Sponsor Zoo
+
+If you're satisfied with the library, please consider [becoming a Sponsor](https://github.com/sponsors/jrl84) and get **your pet with name & photo in the Sponsor Zoo section** here in the README.
+
 ## Contents
 
 - [Prerequisites](#prerequisites)
