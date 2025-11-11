@@ -42,7 +42,19 @@ export interface ListFinancialEventsQuery {
   NextToken?: string;
 }
 
+export interface ListTransactionsQuery {
+  postedAfter?: string;
+  postedBefore?: string;
+  marketplaceId?: string;
+  transactionStatus?: 'DEFERRED' | 'RELEASED' | 'DEFERRED_RELEASED';
+  nextToken?: string;
+}
+
 export interface ListFinancialEventsResponse extends ListFinancialEventGroupsByGroupIdResponse {}
+
+export interface ListTransactionsResponse extends BaseResponse {
+  payload?: ListTransactionsPayload;
+}
 
 export interface ListFinancialEventGroupsPayload {
   NextToken?: string;
@@ -71,6 +83,11 @@ export interface Currency {
 export interface ListFinancialEventsPayload {
   FinancialEvents?: FinancialEvents;
   NextToken?: string;
+}
+
+export interface ListTransactionsPayload {
+  transactions: Transaction[];
+  nextToken?: string;
 }
 
 export interface FinancialEvents {
@@ -148,6 +165,114 @@ export interface ShipmentItem {
 export interface TaxWithheldComponent {
   TaxCollectionModel?: string;
   TaxesWithheld?: ChargeComponent[];
+}
+
+export interface SellingPartnerMetadata {
+  sellingPartnerId?: string;
+  accountType?: string;
+  marketplaceId?: string;
+}
+
+export interface RelatedIdentifier {
+  relatedIdentifierName?:
+    | 'ORDER_ID'
+    | 'SHIPMENT_ID'
+    | 'FINANCIAL_EVENT_GROUP_ID'
+    | 'REFUND_ID'
+    | 'INVOICE_ID'
+    | 'DISBURSEMENT_ID'
+    | 'TRANSFER_ID'
+    | 'DEFERRED_TRANSACTION_ID'
+    | 'RELEASE_TRANSACTION_ID'
+    | 'SETTLEMENT_ID';
+  relatedIdentifierValue?: string;
+}
+
+export interface MarketplaceDetails {
+  marketplaceId?: string;
+  marketplaceName?: string;
+}
+
+export interface ItemRelatedIdentifier {
+  itemRelatedIdentifierName?: 'ORDER_ADJUSTMENT_ITEM_ID' | 'COUPON_ID' | 'REMOVAL_SHIPMENT_ITEM_ID' | 'TRANSACTION_ID';
+  itemRelatedIdentifierValue?: string;
+}
+
+export interface Breakdown {
+  breakdownType?: string;
+  breakdownAmount?: Currency;
+  breakdowns?: Breakdown[];
+}
+
+export interface Item {
+  description?: string;
+  relatedIdentifiers?: ItemRelatedIdentifier[];
+  totalAmount?: Currency;
+  breakdowns?: Breakdown[];
+  contexts?: Context[];
+}
+
+export interface ProductContext {
+  contextType?: 'ProductContext';
+  asin?: string;
+  sku?: string;
+  quantityShipped?: number;
+  fulfillmentNetwork?: string;
+}
+
+export interface AmazonPayContext {
+  contextType?: 'AmazonPayContext';
+  storeName?: string;
+  orderType?: string;
+  channel?: string;
+}
+
+export interface PaymentsContext {
+  contextType?: 'PaymentsContext';
+  paymentType?: string;
+  paymentMethod?: string;
+  paymentReference?: string;
+  paymentDate?: string;
+}
+
+export interface DeferredContext {
+  contextType?: 'DeferredContext';
+  deferralReason?: string;
+  maturityDate?: string;
+}
+
+export interface BusinessContext {
+  contextType?: 'BusinessContext';
+  storeName?: 'AMAZON_HAUL';
+}
+
+export interface TimeRangeContext {
+  contextType?: 'TimeRangeContext';
+  startTime?: string;
+  endTime?: string;
+}
+
+export type Context =
+  | ProductContext
+  | AmazonPayContext
+  | PaymentsContext
+  | DeferredContext
+  | BusinessContext
+  | TimeRangeContext;
+
+export interface Transaction {
+  sellingPartnerMetadata?: SellingPartnerMetadata;
+  relatedIdentifiers?: RelatedIdentifier[];
+  transactionType?: string;
+  transactionId?: string;
+  transactionStatus?: 'DEFERRED' | 'RELEASED' | 'DEFERRED_RELEASED';
+  description?: string;
+  postedDate?: string;
+  totalAmount?: Currency;
+  marketplaceDetails?: MarketplaceDetails;
+  items?: Item[];
+  contexts?: Context[];
+  breakdowns?: Breakdown[];
 }
 
 export interface Promotion {
