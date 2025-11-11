@@ -1,3 +1,20 @@
+## [v1.2.0](https://github.com/jrl84/amazon-sp-api/tree/v1.2.0) (2025-11-11)
+
+[Full Changelog](https://github.com/jrl84/amazon-sp-api/compare/v1.1.7...v1.2.0)
+
+**Notable changes:**
+
+- Added external fulfillment endpoints
+
+**Commits:**
+
+- Updated dependencies ([`d0f34ce`](https://github.com/jrl84/amazon-sp-api/commit/d0f34ce830f8e70fc65286986fb2a8880c84bd6f))
+- Added new external fulfillment endpoints ([`6501814`](https://github.com/jrl84/amazon-sp-api/commit/6501814f9a074ec676a9de7229878c51f20b6941))
+
+**Merged pull requests:**
+
+- feat\(types\): add typings for listTransactions [\#325](https://github.com/jrl84/amazon-sp-api/pull/325) ([NoelDeMartin](https://github.com/NoelDeMartin))
+
 ## [v1.1.7](https://github.com/jrl84/amazon-sp-api/tree/v1.1.7) (2025-09-12)
 
 [Full Changelog](https://github.com/jrl84/amazon-sp-api/compare/v1.1.6...v1.1.7)
