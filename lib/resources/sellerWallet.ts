@@ -1,4 +1,4 @@
-import sellerWallet_2024_03_01.js from './versions/seller_wallet/sellerWallet_2024-03-01.js';
+import sellerWallet_2024_03_01 from './versions/seller_wallet/sellerWallet_2024-03-01';
 
 export default {
   sellerWallet: {
@@ -17,6 +17,6 @@ export default {
       'getTransferSchedule',
       'deleteScheduleTransaction'
     ],
-    ...sellerWallet_2024_03_01.js
+    ...sellerWallet_2024_03_01
   }
 };
