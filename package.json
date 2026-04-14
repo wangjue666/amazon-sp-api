@@ -2,7 +2,7 @@
   "name": "amazon-sp-api",
   "version": "1.2.1",
   "description": "Amazon Selling Partner API client",
-  "main": "index.js",
+  "main": "dist/index.js",
   "directories": {
     "lib": "./lib/"
   },
@@ -29,22 +29,27 @@
     "qs": "^6.14.0"
   },
   "devDependencies": {
+    "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
     "@types/node": "^24.10.0",
+    "@types/qs": "^6.15.0",
     "chai": "^6.2.0",
     "dotenv": "^16.4.5",
     "mocha": "^11.7.5",
     "moment": "^2.30.1",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:jrl84/amazon-sp-api.git"
   },
   "scripts": {
-    "test": "mocha --config ./test/.mocharc.js",
+    "build": "tsc",
+    "test": "TS_NODE_PROJECT=tsconfig.test.json mocha --config ./test/.mocharc.js",
     "format": "npx prettier --write ."
   },
   "homepage": "https://github.com/jrl84/amazon-sp-api",
-  "types": "./lib/typings/index.d.ts"
+  "types": "./dist/index.d.ts"
 }
