@@ -28,7 +28,6 @@ export interface SPOptions {
   timeouts: { response?: number; idle?: number; deadline?: number };
   retry_remote_timeout: boolean;
   https_proxy_agent?: http.Agent;
-  [key: string]: unknown;
 }
 
 export interface ApiReqParams {

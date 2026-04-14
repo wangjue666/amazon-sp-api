@@ -3,3 +3,6 @@
 /temp
 /CHANGELOG.md.*
 /enhance_changelog.sh
+/lib
+index.ts
+tsconfig.json

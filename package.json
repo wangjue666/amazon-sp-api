@@ -2,7 +2,7 @@
   "name": "amazon-sp-api",
   "version": "1.2.1",
   "description": "Amazon Selling Partner API client",
-  "main": "index.js",
+  "main": "dist/index.js",
   "directories": {
     "lib": "./lib/"
   },
@@ -45,9 +45,10 @@
     "url": "git@github.com:jrl84/amazon-sp-api.git"
   },
   "scripts": {
-    "test": "mocha --config ./test/.mocharc.js",
+    "build": "tsc",
+    "test": "npm run build && mocha --config ./test/.mocharc.js",
     "format": "npx prettier --write ."
   },
   "homepage": "https://github.com/jrl84/amazon-sp-api",
-  "types": "./lib/typings/index.d.ts"
+  "types": "./dist/index.d.ts"
 }

@@ -1,5 +1,5 @@
 const config = require('./config');
-const SellingPartnerAPI = require('../index');
+const SellingPartnerAPI = require('../dist/index').default;
 
 module.exports.mochaHooks = {
   beforeAll: async function () {

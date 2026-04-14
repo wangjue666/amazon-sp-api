@@ -114,7 +114,7 @@ const printWarning: PrintWarningMap = {
 };
 
 export function warn(warn_type: string, params: string): void {
-  const overwrite = printWarning[warn_type](params);
+  printWarning[warn_type](params);
   // Overwrite original function definition --> this will ensure that warning is printed only once
-  if (overwrite) printWarning[warn_type] = () => {};
+  printWarning[warn_type] = () => {};
 }

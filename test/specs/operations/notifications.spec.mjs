@@ -1,4 +1,4 @@
-import {SellingPartner} from '../../../index.js';
+import {SellingPartner} from '../../../dist/index.js';
 import * as chai from 'chai';
 const expect = chai.expect;
 
