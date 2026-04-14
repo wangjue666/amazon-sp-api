@@ -136,11 +136,11 @@ describe(endpoint, async function () {
         unzip: true
       }
     });
-    let data = "";
-    resStream.on("data", (chunk) => {
+    let data: any = "";
+    resStream.on("data", (chunk: any) => {
       data += chunk.toString();
     });
-    resStream.on("error", async (err) => {});
+    resStream.on("error", async (err: any) => {});
     resStream.on("end", () => {
       data = JSON.parse(data);
       expect(data).to.be.a("object");

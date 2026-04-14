@@ -1,4 +1,4 @@
-import {SellingPartner} from '../../dist/index.js';
+import { SellingPartner } from '../../index';
 import * as chai from 'chai';
 const expect = chai.expect;
 
@@ -8,7 +8,7 @@ describe('configErrors', async function () {
       new SellingPartner({
         region: this.config.region
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('NO_REFRESH_TOKEN_PROVIDED');
     }
@@ -17,10 +17,10 @@ describe('configErrors', async function () {
   it('should return an invalid region error', async function () {
     try {
       new SellingPartner({
-        region: 'de',
+        region: 'de' as any,
         refresh_token: this.config.refresh_token
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('NO_VALID_REGION_PROVIDED');
     }
@@ -34,7 +34,7 @@ describe('configErrors', async function () {
         access_token: this.config.access_token
       });
       await spClient.callAPI({});
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('NO_OPERATION_GIVEN');
     }
@@ -53,7 +53,7 @@ describe('configErrors', async function () {
       await spClient.callAPI({
         operation: 'sellers.getMarketplaceParticipations'
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('INVALID_OPERATION_ERROR');
     }
@@ -69,7 +69,7 @@ describe('configErrors', async function () {
       await spClient.callAPI({
         operation: 'getMarketplaceParticipations'
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('NO_ENDPOINT_GIVEN');
     }
@@ -86,7 +86,7 @@ describe('configErrors', async function () {
         operation: 'getMarketplaceParticipations',
         endpoint: 'invalidEndpoint'
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('ENDPOINT_NOT_FOUND');
     }
@@ -103,7 +103,7 @@ describe('configErrors', async function () {
         operation: 'getMarketplaceParticipations',
         endpoint: 'catalogItems'
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('INVALID_OPERATION_FOR_ENDPOINT');
     }
@@ -118,7 +118,7 @@ describe('configErrors', async function () {
         }
       });
       await spClient.refreshAccessToken();
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('NO_SCOPE_PROVIDED');
     }
@@ -136,7 +136,7 @@ describe('configErrors', async function () {
       await spClient.callAPI({
         operation: 'sellers.getMarketplaceParticipations'
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('NO_ACCESS_TOKEN_PRESENT');
     }
@@ -149,7 +149,7 @@ describe('configErrors', async function () {
         refresh_token: this.config.refresh_token
       });
       await spClient.callAPI({});
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('NO_OPERATION_GIVEN');
     }
@@ -164,7 +164,7 @@ describe('configErrors', async function () {
       await spClient.callAPI({
         operation: 'sellers.getMarketplaceParticipations'
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('invalid_grant');
     }
@@ -179,7 +179,7 @@ describe('configErrors', async function () {
       await spClient.callAPI({
         api_path: '/sellers/v1/marketplaceParticipations'
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('NO_VALID_METHOD_PROVIDED');
     }
@@ -194,7 +194,7 @@ describe('configErrors', async function () {
           invalidEndpoint: 'v0'
         }
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('VERSION_DEFINED_FOR_INVALID_ENDPOINTS');
     }
@@ -209,7 +209,7 @@ describe('configErrors', async function () {
           sellers: 'unknownVersion'
         }
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('INVALID_VERSION_FOR_ENDPOINTS');
     }
@@ -228,7 +228,7 @@ describe('configErrors', async function () {
           version: 'unknownVersion'
         }
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('INVALID_VERSION');
     }
@@ -254,7 +254,7 @@ describe('configErrors', async function () {
           version: '2020-12-01'
         }
       });
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('OPERATION_NOT_FOUND_FOR_VERSION');
     }
@@ -269,7 +269,7 @@ describe('configErrors', async function () {
         }
       });
       await spClient.exchange('invalid_auth_code');
-    } catch (e) {
+    } catch (e: any) {
       expect(e).to.be.an('error');
       expect(e.code).to.equal('invalid_request');
       expect(e.message).to.equal('The request has an invalid parameter : code');
@@ -277,8 +277,8 @@ describe('configErrors', async function () {
   });
 
   it('should return a response timeout error', async function () {
-    let response_timeout = 5;
-    let res;
+    const response_timeout = 5;
+    let res: any;
     try {
       const spClient = new SellingPartner({
         region: this.config.region,
@@ -303,8 +303,8 @@ describe('configErrors', async function () {
   });
 
   it('should return a deadline timeout error', async function () {
-    let deadline_timeout = 5;
-    let res;
+    const deadline_timeout = 5;
+    let res: any;
     try {
       const spClient = new SellingPartner({
         region: this.config.region,
@@ -341,7 +341,7 @@ describe('configErrors', async function () {
         SELLING_PARTNER_APP_CLIENT_SECRET: 'INVALID_CLIENT_ERROR'
       }
     });
-    let res;
+    let res: any;
     try {
       res = await spClient.refreshAccessToken();
     } catch (e) {

@@ -88,7 +88,7 @@ describe(endpoint, async function () {
               }
             },
             IdType: 'ASIN',
-            IdValue: this.config.sain
+            IdValue: (this.config as any).sain
           }
         ]
       });

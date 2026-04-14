@@ -887,7 +887,7 @@ class SellingPartner {
     return await this.downloadStream(report_document, req_params.download || {});
   }
 
-  updateCredentials(credentials: ConfigCredentials): void {
+  updateCredentials(credentials?: ConfigCredentials): void {
     this._credentials = new Credentials(credentials, this._options.credentials_path, this._options.debug_log).load();
   }
 }

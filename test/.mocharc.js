@@ -1,5 +1,5 @@
 module.exports = {
   timeout: 20000,
-  require: ['./test/hooks.js'],
-  spec: ['./test/specs/configErrors.spec.mjs', './test/specs/operations/*.spec.mjs']
+  require: ['ts-node/register', './test/hooks.ts'],
+  spec: ['./test/specs/configErrors.spec.ts', './test/specs/operations/*.spec.ts']
 };

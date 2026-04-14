@@ -29,6 +29,7 @@
     "qs": "^6.14.0"
   },
   "devDependencies": {
+    "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
     "@types/node": "^24.10.0",
     "@types/qs": "^6.15.0",
@@ -46,7 +47,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "npm run build && mocha --config ./test/.mocharc.js",
+    "test": "TS_NODE_PROJECT=tsconfig.test.json mocha --config ./test/.mocharc.js",
     "format": "npx prettier --write ."
   },
   "homepage": "https://github.com/jrl84/amazon-sp-api",
